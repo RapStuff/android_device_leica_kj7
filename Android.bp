@@ -1,0 +1,70 @@
+//
+// SPDX-FileCopyrightText: The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+soong_namespace {
+}
+
+android_app_import {
+    name: "MiuiCamera",
+    owner: "tecno",
+    apk: "proprietary/system_ext/priv-app/MiuiCamera/MiuiCamera.apk",
+    certificate: "platform",
+    dex_preopt: {
+        enabled: false,
+    },
+    privileged: true,
+    system_ext_specific: true,
+    overrides: [
+        "Aperture",
+        "Camera2",
+    ],
+}
+
+android_app_import {
+    name: "MiuiExtraPhoto",
+    owner: "tecno",
+    apk: "proprietary/system_ext/priv-app/MiuiExtraPhoto/MiuiExtraPhoto.apk",
+    certificate: "platform",
+    dex_preopt: {
+        enabled: false,
+    },
+    privileged: true,
+    system_ext_specific: true,
+}
+
+prebuilt_etc {
+    name: "privapp-permissions-miuicamera.xml",
+    src: "proprietary/system_ext/etc/permissions/privapp-permissions-miuicamera.xml",
+    relative_install_path: "permissions",
+    system_ext_specific: true,
+}
+
+prebuilt_etc {
+    name: "default-permissions-miuicamera.xml",
+    src: "proprietary/system_ext/etc/default-permissions/default-permissions-miuicamera.xml",
+    relative_install_path: "default-permissions",
+    system_ext_specific: true,
+}
+
+prebuilt_etc {
+    name: "miuicamera-hiddenapi-package-whitelist.xml",
+    src: "proprietary/system_ext/etc/sysconfig/miuicamera-hiddenapi-package-whitelist.xml",
+    relative_install_path: "sysconfig",
+    system_ext_specific: true,
+}
+
+prebuilt_etc {
+    name: "sceneDetection.xml",
+    src: "proprietary/vendor/etc/camera/sceneDetection.xml",
+    relative_install_path: "camera",
+    soc_specific: true,
+}
+
+prebuilt_etc {
+    name: "android.hardware.camera.raw.xml",
+    src: "proprietary/vendor/etc/permissions/android.hardware.camera.raw.xml",
+    relative_install_path: "permissions",
+    soc_specific: true,
+}
